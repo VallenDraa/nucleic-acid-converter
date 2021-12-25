@@ -201,12 +201,27 @@ input[type="radio"]:checked{
         width:87%;
     }
 }
-
 @media (max-width: 768px) {
     h1{
         font-size: 25px;
     }
     header p{
         font-size: 15px;
+    }
+}
+
+@media (max-width: 540px) {
+    .main{
+        height: 100vh;
+    }
+}
+@media (max-width: 375px) {
+    .main{
+        height: 120vh;
+    }
+}
+@media (max-height:540px){
+    .main{
+        height: 200vh;
     }
 }
