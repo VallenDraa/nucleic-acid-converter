@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+body{
+    background-image: linear-gradient(90deg, gainsboro,white 60%);
+}
+
+/* Header Css */
+header{
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+header p{
+    line-height:2rem;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+
+/* Blue Lavender Background CSS */
+.main{
+    margin: auto;
+    height: 150vh;
+    width: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(235deg, #6474e5, #6474e5 );
+    transition: 0.5s;
+}
+
+
+/* input and Input type CSS */
+form{
+    margin-top: 55px;
+}
+
+.subheading{
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.subheading>span{
+    display: block;
+    font-size: 0.4rem;
+    color: rgb(13, 255, 0);
+}
+
+form>p:nth-child(3){
+    margin-top: 1rem;
+}
+
+.text-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    height: 50px;
+    width:30%;
+    background-color: white;
+    margin: auto;
+    transition: 0.5s;
+    border-radius:10px;
+}
+
+.text-input input{
+    height: 100%;
+    width: 80%;
+    border-radius: 50px;
+    text-align: left;
+    transform: scale(1);
+    transition: 0.1s;
+    outline: none;
+    border: none;
+}
+
+.fa-exchange-alt{
+    color: black;
+    transition: 0.4s;
+    font-size: 21px;
+    cursor:pointer;
+}
+.fa-exchange-alt:hover{
+    color: red;
+    font-size: 25px;
+}
+
+input[type="text"]:focus{
+    border-color:  #bdc3f2;
+    outline-color:  #6474e5;
+}
+
+.input-type{
+    display: flex;
+    width:50%;
+    border-radius: 10px;
+    margin: auto;
+    justify-content: space-around;   
+    background-color: white;
+    padding: 10px;
+    font-weight: 300;
+    transition: 0.5s;
+}
+input[type="radio"]{
+    transform: scale(1.3);    
+    border: none;
+    outline: none;
+}
+
+input[type="radio"]:checked{
+    color: #6474e5;
+    border-color: #6474e5;
+    outline-color: #6474e5;
+}
+
+.input-type div p{
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+/* Result Css */
+.main > p{
+    margin-top: 1rem;
+}
+
+.result-section{
+    border: 1.5px solid white;
+    width:51%;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    font-weight: 300;
+    transition: 0.5s;
+    padding-bottom: 10px;
+}
+
+.result-div{
+    padding: 10px 0;
+}
+
+.result-div > p{
+    padding-bottom: 0.2rem;
+}
+
+.result-field{
+    border: none;
+    outline: none;
+    width: 90%;
+    border-radius: 5px;
+    height: 30px;
+}
+.result-field:focus{
+    border: none;
+    outline: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+    html{
+        overflow-y:scroll
+    }
+    .main{
+        border-radius: 0;
+        height: 100vh
+    }
+    .text-input{
+        width:65%;
+    }
+    .input-type{
+        width:85%;
+    }
+    .input-type div p{
+        font-size: 0.8rem;
+    }
+    h1{
+        font-size: 35px;
+    }
+    header p{
+        font-size: 15px;
+    }
+    .result-section{
+        width:87%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1{
+        font-size: 25px;
+    }
+    header p{
+        font-size: 15px;
+    }
+}

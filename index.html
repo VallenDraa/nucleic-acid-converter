@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Nucleic Acid Converter</title>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <h1>Nucleic Acid Converter</h1>
+        <p>This Site Will Convert Yout Nucleic Acid !</p>
+    </header>
+    <!-- round lavender background -->
+    <section class= "main">
+        <!-- input -->
+        <form>    
+            <p class="subheading">INPUT</p>   
+            <div class="text-input">
+                <input type="text" class="input-field"> 
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <p class="subheading">Input Type <span>*The First Checked Checkbox Will Indicate The Type</span></p>
+            <div class="input-type">
+                <div>
+                    <p>Sense</p>
+                    <input type="radio" class="checkbox" name="checkbox">
+                </div>
+                <div>
+                    <p>Anti-Sense</p>
+                    <input type="radio" class="checkbox" name="checkbox">
+                </div>
+                <div>
+                    <p>Codon</p>
+                    <input type="radio" class="checkbox" name="checkbox"> 
+                </div>
+                <div>
+                    <p>Anti-Codon</p>
+                    <input type="radio" class="checkbox" name="checkbox">
+                </div>
+            </div>
+        </form>
+        <!-- result --> 
+         <p class="subheading">Result</p>   
+        <div class = "result-section">
+            <div class="result-div">
+                <p>Sense</p>
+                <input type="text" class="result-field"> 
+            </div>
+            <div class="result-div">
+                <p>Anti-Sense</p>
+                <input type="text" class="result-field"> 
+            </div>
+            <div class="result-div">
+                <p>Codon</p>
+                <input type="text" class="result-field"> 
+            </div>
+            <div class="result-div">
+                <p>Anti-Codon</p>
+                <input type="text" class="result-field"> 
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
