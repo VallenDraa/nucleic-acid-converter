@@ -16,7 +16,7 @@ let inputType = "";
 // input field listener
 inputField.addEventListener("input", ()=>{
     inputValue = inputField.value.toUpperCase();    
-    inputValue = replaceAll(inputValue," ", "")
+    inputValue = inputValue.replaceAll(" ", "")
 })
 // input type listener
 for(let i=0; i<typeCheckboxes.length; i++){
@@ -28,7 +28,7 @@ for(let i=0; i<typeCheckboxes.length; i++){
     }
 // convert button listener
 convertBtn.addEventListener("click", ()=>{
-    sequenceArray=insertInputToArr(inputValue, sequenceArray)
+    sequenceArray = insertInputToArr(inputValue, sequenceArray)
     if(inputType == "sense"){
         resultField[0].value = sequenceArray.join("-")
         resultField[1].value =(codonToAntiSense(antiCodonToCodon(senseToAntiCodon(sequenceArray)))).join("-") //to antisense
@@ -65,7 +65,7 @@ function insertInputToArr(inputValueAr, resultArrayAr){
     for(let i = 0; i <= inputValueAr.length; i++){
         // i%4 because the insert function replaces the I'th index
         if(i%4 == 0){
-            inputValueAr = insert(i,inputValueAr," ")
+            inputValueAr = inputValueAr.insert(i," ")
         }
     }
     resultArrayAr = inputValueAr.split(" ");
@@ -128,7 +128,7 @@ function antiSenseToSense(sequenceArrayArr){
     for(let i = 0; i <= tempString.length; i++){
         // i%4 because the insert function replaces the I'th index
         if(i%4 == 0){
-            tempString = insert(i,tempString," ")
+            tempString = tempString.insert(i," ")
         }
     }
     finalResult = tempString.split(" ");
@@ -170,7 +170,7 @@ function codonToAntiSense(sequenceArrayArr){
     for(let i = 0; i <= tempString.length; i++){
         // i%4 because the insert function replaces the I'th index
         if(i%4 == 0){
-            tempString = insert(i,tempString," ")
+            tempString = tempString.insert(i," ")
         }
     }
     finalResult = tempString.split(" ");
@@ -212,7 +212,7 @@ function antiCodonToCodon(sequenceArrayArr){
     for(let i = 0; i <= tempString.length; i++){
         // i%4 because the insert function replaces the I'th index
         if(i%4 == 0){
-            tempString = insert(i,tempString," ")
+            tempString = tempString.insert(i," ")
         }
     }
     finalResult = tempString.split(" ");
@@ -254,7 +254,7 @@ function senseToAntiCodon(sequenceArrayArr){
     for(let i = 0; i <= tempString.length; i++){
         // i%4 because the insert function replaces the I'th index
         if(i%4 == 0){
-            tempString = insert(i,tempString," ")
+            tempString = tempString.insert(i," ")
         }
     }
     finalResult = tempString.split(" ");
@@ -265,26 +265,42 @@ function senseToAntiCodon(sequenceArrayArr){
 
 
 
-// Utility Functions
-function insert(index,string, concatenatedWord){
+// Utility Functions Prototypes
+String.prototype.insert = function(index, concatenatedWord){
     let tempString1;
     let tempString2;
 
-    for(let i = 0; i <= string.length; i++){
+    for(let i = 0; i <= this.length; i++){
         if(i == index){
-            tempString1 = string.substr(0, i)
+            tempString1 = this.substr(0, i)
             tempString1 = tempString1.concat(concatenatedWord); 
-            tempString2 = string.substr(i,string.length) 
+            tempString2 = this.substr(i,this.length) 
             return tempString1+tempString2;
         }
     }
 
-    if(index > string.length || index < string.length){
+    if(index > this.length || index < this.length){
         return "Index Out Of Range Exception"
     }
 }
-function occurences(arr, string){
-    // returns the amount of occurences of a string
+String.prototype.replaceAt = function(stringToInsert, index){
+    let tempString1;
+    let targetChar;
+    let tempString2;
+
+    for(let i = 0; i <= this.length; i++){
+        if(i == index){ 
+            tempString1 = this.substr(0, i)
+            targetChar = string[i].replace(this[i],stringToInsert)
+            tempString2 = this.substr(i+1,this.length) 
+            return(tempString1+targetChar+tempString2)
+        }
+    }
+
+   
+}
+Array.prototype.occurences = function(arr, string){
+    // returns the amount of occurences of a string in an array
     let counter = 0;
     for(let i = 0; i < arr.length; i++){
         if(arr[i].toString() === string){
@@ -292,40 +308,4 @@ function occurences(arr, string){
         }
     }
     return counter;
-}
-function replaceAt(string,stringToInsert, index){
-    let tempString1;
-    let targetChar;
-    let tempString2;
-
-    for(let i = 0; i <= string.length; i++){
-        if(i == index){ 
-            tempString1 = string.substr(0, i)
-            console.log(tempString1)
-
-            targetChar = string[i].replace(string[i],stringToInsert)
-            console.log(targetChar)
-
-            tempString2 = string.substr(i+1,string.length) 
-            console.log(tempString2)
-
-            console.log(tempString1+targetChar+tempString2+'\n')
-            return(tempString1+targetChar+tempString2)
-        }
-    }
-
-   
-} 
-function replaceAll(targetString,stringToReplace,newString){
-    let finalResult ="";
-
-    for(let i=0;i<targetString.length; i++){
-        if(targetString[i] == stringToReplace){
-            finalResult = finalResult.concat(targetString[i].replace(stringToReplace,newString)) 
-        }
-        else{
-            finalResult = finalResult.concat(targetString[i])
-        }
-    }
-    return finalResult
 }
